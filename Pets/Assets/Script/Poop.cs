@@ -1,26 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Poop : MonoBehaviour
 {
-    Camera mainCamera;
-
-	void Start ()
+	private void Start ()
     {
-        mainCamera = Camera.main;
+
 	}
 	
-	void Update ()
+	protected virtual bool Update ()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Vector2 worldPoint = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
-            if (hit.collider.gameObject.name.Contains("Poop"))
-            {
-                Destroy(gameObject);
-            }
+            if (hit.collider.gameObject.name.Equals(gameObject.name))
+                return true;
+            else
+                return false;
         }
+        else
+            return false;
     }
 }

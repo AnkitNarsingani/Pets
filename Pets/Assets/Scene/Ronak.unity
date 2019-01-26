@@ -457,7 +457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animal: {fileID: 11400000, guid: b837ad8231d332640a228cdadafbbe62, type: 2}
-  img: {fileID: 165604187}
+  img: {fileID: 0}
   timer: {fileID: 809613416}
   action: {fileID: 2095976952}
   actions: {fileID: 0}
@@ -855,7 +855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animal: {fileID: 11400000, guid: 398b1f4bbb75abf45a2a614e12509a9f, type: 2}
-  img: {fileID: 2010982411}
+  img: {fileID: 0}
   timer: {fileID: 509065601}
   action: {fileID: 1319478185}
   actions: {fileID: 0}
@@ -1327,7 +1327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animal: {fileID: 11400000, guid: bf824255088bfc842bbe3635100432c2, type: 2}
-  img: {fileID: 1976314915}
+  img: {fileID: 0}
   timer: {fileID: 398905382}
   action: {fileID: 609647672}
   actions: {fileID: 0}
@@ -1567,7 +1567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animal: {fileID: 11400000, guid: 0f7cc1cd9067a654b9f10f3fde60770e, type: 2}
-  img: {fileID: 501707234}
+  img: {fileID: 0}
   timer: {fileID: 125512706}
   action: {fileID: 564220105}
   actions: {fileID: 0}

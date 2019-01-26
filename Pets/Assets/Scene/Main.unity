@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 35272514}
   - component: {fileID: 35272513}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Dog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,15 +137,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 35272512}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1c6798edd706fc42b082763d6d7ed17, type: 3}
+  m_Script: {fileID: 11500000, guid: eaafdfa2f65472c42bb6516ae9f105a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - name: Theme Song
-    clip: {fileID: 0}
-    volume: 0.352
-    pitch: 1.98
-    source: {fileID: 0}
+  HungryspeechBubble: {fileID: 0}
+  poop: {fileID: 1670776383093352, guid: 1a75d5e1d0ab14c41ae6101399471c72, type: 2}
+  poopSpawnLocations:
+  - {fileID: 779852856}
+  petState: 0
 --- !u!4 &35272514
 Transform:
   m_ObjectHideFlags: 0
@@ -159,6 +158,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &779852856 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4736202708199388, guid: 1a75d5e1d0ab14c41ae6101399471c72,
+    type: 2}
+  m_PrefabInternal: {fileID: 1939913281}
 --- !u!1001 &1939913281
 Prefab:
   m_ObjectHideFlags: 0
@@ -197,10 +201,6 @@ Prefab:
     - target: {fileID: 4736202708199388, guid: 1a75d5e1d0ab14c41ae6101399471c72, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1670776383093352, guid: 1a75d5e1d0ab14c41ae6101399471c72, type: 2}
-      propertyPath: m_Name
-      value: Poop
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1a75d5e1d0ab14c41ae6101399471c72, type: 2}
@@ -317,4 +317,4 @@ MonoBehaviour:
   HungryspeechBubble: {fileID: 0}
   poop: {fileID: 0}
   poopSpawnLocations: []
-  petState: 0
+  petState: 1

@@ -1,22 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Display : MonoBehaviour {
+public class Display : MonoBehaviour
+{
 
     public ActionHolder animal;
     public Image img;
     public Text timer;
     public Text action;
     public Image actions;
+
     void Start ()
     {
        
 	}
 	
-	// Update is called once per frame
 	void Update ()
+    {
+
+    }
+
+    public void UpdateReferences()
     {
         int value = (int)animal.currState;
         img.sprite = animal.Image;
@@ -24,6 +28,5 @@ public class Display : MonoBehaviour {
         action.text = animal.currState.ToString();
         actions.sprite = animal.actions[value];
         print(animal.actions[value]);
-
     }
 }

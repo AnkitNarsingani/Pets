@@ -9,8 +9,8 @@ public class Dog : LivingEntity
 
     void Start()
     {
-        SetRandomState(ref petState);
         audioSource = Camera.main.GetComponent<AudioSource>();
+        GetNewAction();
     }
 
     void Update()
@@ -22,5 +22,22 @@ public class Dog : LivingEntity
     {
         anim.SetBool("Barking", true);
         AudioManager.Instance.Play("Bark");
+    }
+
+    public void GetNewAction()
+    {
+        SetRandomState(ref petState);
+        switch(petState)
+        {
+            case PetState.Action:
+                Action();
+                break;
+            case PetState.Hungry:
+                Feed();
+                break;
+            case PetState.Loo:
+                Shit();
+                break;
+        }
     }
 }
