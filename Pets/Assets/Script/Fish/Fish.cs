@@ -7,7 +7,7 @@ public class Fish : LivingEntity
 
     void Start()
     {
-        SetRandomState(ref petState);
+		GetNewAction ();
     }
 
     void Update()
@@ -19,5 +19,22 @@ public class Fish : LivingEntity
     {
 
     }
+
+	public void GetNewAction()
+	{
+		SetRandomState(ref petState);
+		switch(petState)
+		{
+		case PetState.Action:
+			Action();
+			break;
+		case PetState.Hungry:
+			Feed();
+			break;
+		case PetState.Loo:
+			Shit();
+			break;
+		}
+	}
 
 }

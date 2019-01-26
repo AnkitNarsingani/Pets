@@ -27,6 +27,7 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.clip = s.clip;
+			s.source.playOnAwake = s.PlayOnAwake;
         }
     }
 
@@ -41,6 +42,17 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
+    public void Stop(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Did not find sound: " + name);
+            return;
+        }
+        s.source.Stop();
+    }
+
     [System.Serializable]
     public class Sound
     {
@@ -51,6 +63,8 @@ public class AudioManager : MonoBehaviour
         public float volume;
         [Range (0.1f, 3f)]
         public float pitch;
+
+		public bool PlayOnAwake;
 
         [HideInInspector] public AudioSource source;
     }

@@ -5,21 +5,21 @@ using UnityEngine;
 public class DogPoop : Poop
 {
     public Dog dog;
-    public Display display;
+    
 
     void Start()
     {
         dog = FindObjectOfType<Dog>();
-        display = GameObject.Find("Dog").GetComponent<Display>();
-        display.UpdateReferences(dog.petState);
+        dog.display.UpdateReferences(dog.petState);
     }
 
     new void Update()
     {
         if (base.Update())
         {
-            StartCoroutine(StartAction());
-            Destroy(gameObject, 3);
+            dog.GetNewAction();
+            dog.display.UpdateReferences(dog.petState);
+            Destroy(gameObject);
         }
 
     }
@@ -27,7 +27,5 @@ public class DogPoop : Poop
     IEnumerator StartAction()
     {
         yield return new WaitForSeconds(2);
-        dog.GetNewAction();
-        display.UpdateReferences(dog.petState);
     }
 }

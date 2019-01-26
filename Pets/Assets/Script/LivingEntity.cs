@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum PetState
 {
@@ -13,7 +14,10 @@ public enum PetState
 public abstract class LivingEntity : MonoBehaviour
 {
     [SerializeField]
-    protected GameObject HungryspeechBubble;
+	public GameObject speechBubble;
+
+	protected Text speechBubbleText;
+
     [SerializeField]
     protected GameObject poop;
     [SerializeField]
@@ -21,19 +25,20 @@ public abstract class LivingEntity : MonoBehaviour
 
     public PetState petState;
 
-    private void Start()
+    public void Start()
     {
-        
+        Debug.Log("YOLO");
     }
 
-    public void Feed()
+    public virtual void Feed()
     {
-        //HungryspeechBubble.SetActive(true);
+        speechBubble.SetActive(true);
+		speechBubbleText.text = "Feed me please";
     }
 
     public void Shit()
     {
-        int temp = UnityEngine.Random.Range(0, poopSpawnLocations.Length + 1);
+        int temp = UnityEngine.Random.Range(0, poopSpawnLocations.Length);
         try
         {
             Instantiate(poop, poopSpawnLocations[temp].position, Quaternion.identity);
@@ -46,7 +51,7 @@ public abstract class LivingEntity : MonoBehaviour
 
     public abstract void Action();
 
-    public void SetRandomState(ref PetState currentstate)
+    protected void SetRandomState(ref PetState currentstate)
     {
         int temp = UnityEngine.Random.Range(1, 4);
 

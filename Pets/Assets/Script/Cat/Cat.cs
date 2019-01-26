@@ -1,33 +1,33 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class Dog : LivingEntity
+public class Cat : LivingEntity 
 {
+
     AudioSource audioSource;
     Animator anim;
 
-    void Start()
-    {
+    void Start () 
+	{
         audioSource = Camera.main.GetComponent<AudioSource>();
         GetNewAction();
     }
+	
 
-    void Update()
-    {
-
-    }
+	void Update () 
+	{
+		
+	}
 
     public override void Action()
     {
-        //anim.SetBool("Barking", true);
-        //AudioManager.Instance.Play("Bark");
+        
     }
 
     public void GetNewAction()
     {
         SetRandomState(ref petState);
-        switch(petState)
+        switch (petState)
         {
             case PetState.Action:
                 Action();

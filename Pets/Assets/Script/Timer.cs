@@ -22,6 +22,7 @@ public class Timer : MonoBehaviour
             if(timer < 0)
             {
                 //GameOver
+                canTime = false;
             }
         }
     }
