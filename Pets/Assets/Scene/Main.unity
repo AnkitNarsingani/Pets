@@ -113,6 +113,98 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &35272512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 35272514}
+  - component: {fileID: 35272513}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &35272513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 35272512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1c6798edd706fc42b082763d6d7ed17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Theme Song
+    clip: {fileID: 0}
+    volume: 0.352
+    pitch: 1.98
+    source: {fileID: 0}
+--- !u!4 &35272514
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 35272512}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1939913281
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4736202708199388, guid: 1a75d5e1d0ab14c41ae6101399471c72, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.858656
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736202708199388, guid: 1a75d5e1d0ab14c41ae6101399471c72, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.42678583
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736202708199388, guid: 1a75d5e1d0ab14c41ae6101399471c72, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.04296875
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736202708199388, guid: 1a75d5e1d0ab14c41ae6101399471c72, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736202708199388, guid: 1a75d5e1d0ab14c41ae6101399471c72, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736202708199388, guid: 1a75d5e1d0ab14c41ae6101399471c72, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736202708199388, guid: 1a75d5e1d0ab14c41ae6101399471c72, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736202708199388, guid: 1a75d5e1d0ab14c41ae6101399471c72, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670776383093352, guid: 1a75d5e1d0ab14c41ae6101399471c72, type: 2}
+      propertyPath: m_Name
+      value: Poop
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1a75d5e1d0ab14c41ae6101399471c72, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &2015483290
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +216,8 @@ GameObject:
   - component: {fileID: 2015483293}
   - component: {fileID: 2015483292}
   - component: {fileID: 2015483291}
+  - component: {fileID: 2015483296}
+  - component: {fileID: 2015483295}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -154,7 +248,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.4987565, g: 0.8708403, b: 0.9044118, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -194,3 +288,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2015483295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2015483290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaafdfa2f65472c42bb6516ae9f105a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HungryspeechBubble: {fileID: 0}
+  poop: {fileID: 1670776383093352, guid: 1a75d5e1d0ab14c41ae6101399471c72, type: 2}
+  poopSpawnLocations: []
+  petState: 0
+--- !u!114 &2015483296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2015483290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a068f03625ea80a43bc229dd16d74b36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HungryspeechBubble: {fileID: 0}
+  poop: {fileID: 0}
+  poopSpawnLocations: []
+  petState: 0
