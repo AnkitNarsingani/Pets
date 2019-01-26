@@ -27,7 +27,7 @@ public class Display : MonoBehaviour
             case PetState.Action:
                 actions.sprite = animal.actions[0];
                 action.text = "Barking";
-                timer.text = "3";
+                timer.text = "1";
                 break;
             case PetState.Hungry:
                 actions.sprite = animal.actions[1];
@@ -40,8 +40,5 @@ public class Display : MonoBehaviour
                 timer.text = "5";
                 break;
         }
-        
-
-        
     }
 }

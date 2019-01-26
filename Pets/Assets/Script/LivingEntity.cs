@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,15 +33,22 @@ public abstract class LivingEntity : MonoBehaviour
 
     public void Shit()
     {
-        int temp = Random.Range(0, poopSpawnLocations.Length);
-        Instantiate(poop, poopSpawnLocations[temp].position, Quaternion.identity);
+        int temp = UnityEngine.Random.Range(0, poopSpawnLocations.Length + 1);
+        try
+        {
+            Instantiate(poop, poopSpawnLocations[temp].position, Quaternion.identity);
+        }
+        catch(IndexOutOfRangeException)
+        {
+            Debug.Log("Array lenegth is :" + poopSpawnLocations.Length.ToString() + "but temp = " + temp);
+        }
     }
 
     public abstract void Action();
 
     public void SetRandomState(ref PetState currentstate)
     {
-        int temp = Random.Range(1, 4);
+        int temp = UnityEngine.Random.Range(1, 4);
 
         switch(temp)
         {

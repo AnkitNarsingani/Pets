@@ -11,6 +11,7 @@ public class DogPoop : Poop
     {
         dog = FindObjectOfType<Dog>();
         display = GameObject.Find("Dog").GetComponent<Display>();
+        display.UpdateReferences(dog.petState);
     }
 
     new void Update()
