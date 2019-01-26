@@ -14,5 +14,5 @@ MonoBehaviour:
   animal: Cat
   timer: 15
   isDone: 0
-  Image: {fileID: 0}
+  Image: {fileID: 21300000, guid: 316705ba139f1a64da56a20ba4408a6a, type: 3}
   currState: 0
