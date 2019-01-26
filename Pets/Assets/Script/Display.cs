@@ -17,7 +17,7 @@ public class Display : MonoBehaviour
 	
 	void Update ()
     {
-
+        UpdateReferences();
     }
 
     public void UpdateReferences()

@@ -19,4 +19,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 316705ba139f1a64da56a20ba4408a6a, type: 3}
   - {fileID: 21300000, guid: 51e1e7195e58cf140aa9b1b898c9fc45, type: 3}
   - {fileID: 21300000, guid: 28944f30db0c8124095229723eeccf39, type: 3}
-  currState: 0
+  - {fileID: 21300000, guid: 316705ba139f1a64da56a20ba4408a6a, type: 3}
+  currState: 3
