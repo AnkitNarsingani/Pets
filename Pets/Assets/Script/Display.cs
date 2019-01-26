@@ -12,21 +12,36 @@ public class Display : MonoBehaviour
 
     void Start ()
     {
-       
-	}
+        img.sprite = animal.Image;
+    }
 	
 	void Update ()
     {
-        UpdateReferences();
+
     }
 
-    public void UpdateReferences()
+    public void UpdateReferences(PetState state)
     {
-        int value = (int)animal.currState;
-        img.sprite = animal.Image;
-        timer.text = animal.timer.ToString();
-        action.text = animal.currState.ToString();
-        actions.sprite = animal.actions[value];
-        print(animal.actions[value]);
+        switch(state)
+        {
+            case PetState.Action:
+                actions.sprite = animal.actions[0];
+                action.text = "Barking";
+                timer.text = "3";
+                break;
+            case PetState.Hungry:
+                actions.sprite = animal.actions[1];
+                action.text = "Hungry";
+                timer.text = "2";
+                break;
+            case PetState.Loo:
+                actions.sprite = animal.actions[2];
+                action.text = "Shit";
+                timer.text = "5";
+                break;
+        }
+        
+
+        
     }
 }

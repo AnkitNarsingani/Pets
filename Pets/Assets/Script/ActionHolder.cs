@@ -6,13 +6,8 @@ using UnityEngine;
 public class ActionHolder : ScriptableObject
 {
     public string animal;
-   
     public int timer;
     public bool isDone;
     public Sprite Image;
     public Sprite[] actions;
-    
-    public enum ActionState{ Action=0,Feed,Shit,Done }
-    public ActionState currState;
-
 }

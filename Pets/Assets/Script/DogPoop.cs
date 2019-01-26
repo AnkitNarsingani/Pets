@@ -4,34 +4,29 @@ using UnityEngine;
 
 public class DogPoop : Poop
 {
-    Dog dog;
-    public Display disp;
+    public Dog dog;
+    public Display display;
 
-	void Start ()
+    void Start()
     {
-        dog = GameObject.Find("Dog").GetComponent<Dog>();
-        disp = GameObject.Find("Dog").GetComponent<Display>();
-        disp.animal.currState = ActionHolder.ActionState.Shit;
+        dog = FindObjectOfType<Dog>();
+        display = GameObject.Find("Dog").GetComponent<Display>();
     }
 
-	new void Update ()
+    new void Update()
     {
-        if(base.Update())
+        if (base.Update())
         {
-            Destroy(gameObject);
-            
-            StopCoroutine("StartAction");
-         
-            disp.animal.currState = ActionHolder.ActionState.Done;
-          
+            StartCoroutine(StartAction());
+            Destroy(gameObject, 3);
         }
-       
+
     }
 
     IEnumerator StartAction()
     {
         yield return new WaitForSeconds(2);
         dog.GetNewAction();
-        disp.UpdateReferences();
+        display.UpdateReferences(dog.petState);
     }
 }

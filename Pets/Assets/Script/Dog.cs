@@ -15,13 +15,13 @@ public class Dog : LivingEntity
 
     void Update()
     {
-        Debug.Log("Dog = " + petState.ToString());
+
     }
 
     public override void Action()
     {
-        anim.SetBool("Barking", true);
-        AudioManager.Instance.Play("Bark");
+        //anim.SetBool("Barking", true);
+        //AudioManager.Instance.Play("Bark");
     }
 
     public void GetNewAction()

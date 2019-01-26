@@ -27,12 +27,12 @@ public abstract class LivingEntity : MonoBehaviour
 
     public void Feed()
     {
-        HungryspeechBubble.SetActive(true);
+        //HungryspeechBubble.SetActive(true);
     }
 
     public void Shit()
     {
-        int temp = Random.Range(0, poopSpawnLocations.Length + 1);
+        int temp = Random.Range(0, poopSpawnLocations.Length);
         Instantiate(poop, poopSpawnLocations[temp].position, Quaternion.identity);
     }
 
