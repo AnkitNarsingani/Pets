@@ -5,11 +5,14 @@ using UnityEngine;
 public class Poop : MonoBehaviour
 {
     Camera mainCamera;
-
-	void Start ()
+    
+    void Start ()
     {
         mainCamera = Camera.main;
-	}
+        
+       
+        
+    }
 	
 	void Update ()
     {
@@ -19,7 +22,9 @@ public class Poop : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
             if (hit.collider.gameObject.name.Contains("Poop"))
             {
-                Destroy(gameObject);
+                Destroy(gameObject,2);
+               
+
             }
         }
     }

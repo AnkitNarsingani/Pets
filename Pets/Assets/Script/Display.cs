@@ -23,7 +23,7 @@ public class Display : MonoBehaviour {
         timer.text = animal.timer.ToString();
         action.text = animal.currState.ToString();
         actions.sprite = animal.actions[value];
-        print(animal.actions[value]);
+       // print(animal.actions[value]);
 
     }
 }
