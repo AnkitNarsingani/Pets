@@ -5,14 +5,14 @@ public class Display : MonoBehaviour
 {
 
     public ActionHolder animal;
-    public Image img;
     public Text timer;
-    public Text action;
     public Image actions;
 
+	public float ActionTimer;
+	public float FeedTimer;
+	public float PoopTimer;
     void Start ()
     {
-        img.sprite = animal.Image;
     }
 	
 	void Update ()
@@ -26,18 +26,15 @@ public class Display : MonoBehaviour
         {
             case PetState.Action:
                 actions.sprite = animal.actions[0];
-                action.text = "Barking";
-                timer.text = "1";
+				timer.text = ActionTimer.ToString();
                 break;
             case PetState.Hungry:
                 actions.sprite = animal.actions[1];
-                action.text = "Hungry";
-                timer.text = "2";
+				timer.text = FeedTimer.ToString();
                 break;
             case PetState.Loo:
                 actions.sprite = animal.actions[2];
-                action.text = "Shit";
-                timer.text = "5";
+				timer.text = PoopTimer.ToString();
                 break;
         }
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
@@ -19,7 +20,9 @@ public class Timer : MonoBehaviour
         if(canTime)
         {
             timer -= Time.deltaTime;
-            if(timer < 0)
+			int Inttext = (int) Math.Ceiling (timer);
+			GetComponentInChildren<Text> ().text = Inttext.ToString ();
+            if(timer <= 0)
             {
                 //GameOver
                 canTime = false;
@@ -27,13 +30,13 @@ public class Timer : MonoBehaviour
         }
     }
 
-    void StartTimer()
+    public void StartTimer()
     {
         float.TryParse(display.timer.text, out timer);
 
         if(timer > 0)
         {
-            canTime = true;
+			 canTime = true;
         }
     }
 }

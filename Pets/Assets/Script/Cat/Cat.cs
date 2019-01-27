@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Cat : LivingEntity 
 {
 
     AudioSource audioSource;
     Animator anim;
-	public Transform catPlace;
 	[HideInInspector]
 	public Display display;
+
+
 
 
     void Start () 
@@ -17,6 +18,8 @@ public class Cat : LivingEntity
 		display = GameObject.Find("Cat").GetComponent<Display>();
         audioSource = Camera.main.GetComponent<AudioSource>();
         GetNewAction();
+
+
     }
 	
 
@@ -27,7 +30,11 @@ public class Cat : LivingEntity
 
 	public override void Feed()
 	{
+		speechBubble.SetActive (true);
+
+		
 		GetComponent<CatFeed> ().enabled = true;
+
 	}
 
     public override void Action()
