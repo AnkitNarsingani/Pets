@@ -12,7 +12,7 @@ public class Fish : LivingEntity
 
     void Update()
     {
-        Debug.Log("Fish = " + petState.ToString());
+		
     }
 
     public override void Action()

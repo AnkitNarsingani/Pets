@@ -27,7 +27,7 @@ public abstract class LivingEntity : MonoBehaviour
 
     public void Start()
     {
-        Debug.Log("YOLO");
+		
     }
 
     public virtual void Feed()
@@ -39,14 +39,7 @@ public abstract class LivingEntity : MonoBehaviour
     public void Shit()
     {
         int temp = UnityEngine.Random.Range(0, poopSpawnLocations.Length);
-        try
-        {
-            Instantiate(poop, poopSpawnLocations[temp].position, Quaternion.identity);
-        }
-        catch(IndexOutOfRangeException)
-        {
-            Debug.Log("Array lenegth is :" + poopSpawnLocations.Length.ToString() + "but temp = " + temp);
-        }
+		Instantiate(poop, poopSpawnLocations[temp].position, Quaternion.identity);
     }
 
     public abstract void Action();
