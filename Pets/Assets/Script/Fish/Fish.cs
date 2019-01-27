@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Fish : LivingEntity
 {
+	[HideInInspector]
+	public Display display;
 
     void Start()
     {
