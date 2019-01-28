@@ -17,7 +17,7 @@ public class FishPoop : Poop {
 	{
 		if (base.Update ()) 
 		{
-			fish.GetNewAction();
+			//fish.GetNewAction();
 			fish.display.UpdateReferences(fish.petState);
 			Destroy(gameObject);
 		}

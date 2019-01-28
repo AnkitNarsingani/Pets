@@ -8,11 +8,14 @@ public class Timer : MonoBehaviour
 {
     Display display;
     [HideInInspector]
-    public float timer = 0;
+    public  float timer = 0;
+    public static int godcounter = 0;
     bool canTime = false;
     public int counter;
-    
+    public  int Inttext;
 
+    
+    
     void Start()
     {
         display = GetComponent<Display>();
@@ -22,17 +25,20 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(godcounter);
         if (canTime)
         {
             timer -= Time.deltaTime;
             int Inttext = (int)Math.Ceiling(timer);
+            if(GetComponentInChildren<Text>()!=null)
             GetComponentInChildren<Text>().text = Inttext.ToString();
-            if (timer <= 0)
+            if (Inttext == 0)
             {
                 //GameOver
+              
                 counter++;
               
-                if (counter > 3)
+                if (counter/16 > 3)
                 {
                     
                     canTime = false;
@@ -44,6 +50,7 @@ public class Timer : MonoBehaviour
     public void StartTimer()
     {
         float.TryParse(display.timer.text, out timer);
+
 
         if (timer > 0)
         {
