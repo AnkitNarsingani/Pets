@@ -20,8 +20,9 @@ public class BirdPoop : Poop {
 
             bird.display.GetComponent<Timer>().timer = 10;
             bird.display.GetComponent<Timer>().StartTimer();
+            bird.display.UpdateReferences(bird.petState);
             bird.GetNewAction();
-			bird.display.UpdateReferences(bird.petState);
+			
 			Destroy(gameObject);
 		}
 	}

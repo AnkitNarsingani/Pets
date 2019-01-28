@@ -18,7 +18,9 @@ public class BirdFeed : Feed {
 		if (base.Update()) 
 		{
 			bird.speechBubble.SetActive (false);
-			bird.GetNewAction ();
+            bird.display.GetComponent<Timer>().timer = 10;
+            bird.display.GetComponent<Timer>().StartTimer();
+            bird.GetNewAction ();
 			bird.display.UpdateReferences (bird.petState);
 			enabled = false;
 		}
