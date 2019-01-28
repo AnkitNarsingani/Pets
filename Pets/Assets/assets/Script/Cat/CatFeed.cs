@@ -9,6 +9,9 @@ public class CatFeed : Feed
     void Start()
     {
 		cat = GetComponent<Cat> ();
+        cat.display.GetComponent<Timer>().timer = 10;
+        cat.display.GetComponent<Timer>().StartTimer();
+
     }
 
     new void Update()
@@ -17,6 +20,7 @@ public class CatFeed : Feed
 		{
 			enabled = false;
 			cat.speechBubble.SetActive (false);
+
 			cat.GetNewAction ();
 			cat.display.UpdateReferences (cat.petState);
 

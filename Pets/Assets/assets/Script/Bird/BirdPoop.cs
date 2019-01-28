@@ -9,13 +9,18 @@ public class BirdPoop : Poop {
 	{
 		bird = FindObjectOfType<Bird>();
 		bird.display.UpdateReferences(bird.petState);
-	}
+        bird.display.GetComponent<Timer>().timer = 10;
+        bird.display.GetComponent<Timer>().StartTimer();
+    }
 
 	new void Update()
 	{
 		if(base.Update())
 		{
-			bird.GetNewAction();
+
+            bird.display.GetComponent<Timer>().timer = 10;
+            bird.display.GetComponent<Timer>().StartTimer();
+            bird.GetNewAction();
 			bird.display.UpdateReferences(bird.petState);
 			Destroy(gameObject);
 		}

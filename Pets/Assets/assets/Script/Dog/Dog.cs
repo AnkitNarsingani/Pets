@@ -15,6 +15,7 @@ public class Dog : LivingEntity
         audioSource = Camera.main.GetComponent<AudioSource>();
 		display = GameObject.Find("Dog").GetComponent<Display>();
 		speechBubbleText =  speechBubble.GetComponentInChildren<Text> ();
+        display.GetComponent<Timer>().StartTimer();
         GetNewAction();
     }
 

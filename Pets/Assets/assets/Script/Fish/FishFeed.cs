@@ -9,25 +9,43 @@ public class FishFeed : Feed
 	void Start () 
 	{
 		fish = GetComponent<Fish> ();
-	}
+       
+    }
+    private void OnEnable()
+    {
+        fish = GetComponent<Fish>();
+        fish.display.GetComponent<Timer>().timer = 10;
+        fish.display.GetComponent<Timer>().StartTimer();
+    }
+    private void OnDisable()
+    {
 
-	void Update () 
+       
+        fish.display.timer.text = "";
+
+    }
+
+    new void Update () 
 	{
 		if (base.Update ()) 
 		{
-			enabled = false;
-			fish.speechBubble.SetActive (false);
-			fish.display.timer.text = "";
-			StartCoroutine (getAction ());
+            fish.display.timer.text = "";
+            this.enabled = false;
+            fish.speechBubble.SetActive (false);
+           
+            StartCoroutine (getAction ());
 		}
 	}
 
 	IEnumerator getAction()
 	{
 		int temp = Random.Range (3, 8);
-		yield return new WaitForSeconds (temp);
-		fish.GetNewAction ();
+      
+        yield return new WaitForSeconds (temp);
+        fish.GetNewAction ();
+
 		fish.display.UpdateReferences (fish.petState);
-		fish.display.GetComponent<Timer> ().StartTimer ();
-	}
+       
+
+    }
 }

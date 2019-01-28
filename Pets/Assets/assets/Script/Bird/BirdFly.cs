@@ -20,9 +20,13 @@ public class BirdFly : MonoBehaviour
 	float magnitude = 0.5f;
 	void Start () {
 		bird = GetComponent<Bird> ();
-		pos = transform.position;
-		localScale = transform.localScale;
-	}
+        pos = new Vector3(-0.83f, 1.97f, -0.04003906f);
+        transform.position = pos;
+        localScale = transform.localScale;
+    
+        bird.display.GetComponent<Timer>().timer = 10;
+        bird.display.GetComponent<Timer>().StartTimer();
+    }
 	
 	// Update is called once per frame
 	void Update () 
@@ -34,9 +38,11 @@ public class BirdFly : MonoBehaviour
 			RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
 			if (hit.collider != null && hit.collider.gameObject.name.Equals(gameObject.name))
 			{
-				transform.position = new Vector3 (-0.83f, 1.97f, -0.04003906f);
-
-				bird.GetNewAction();
+                pos = new Vector3(-0.83f, 1.97f, -0.04003906f);
+                transform.position = pos;
+                bird.display.GetComponent<Timer>().timer = 10;
+                bird.display.GetComponent<Timer>().StartTimer();
+                bird.GetNewAction();
 				enabled = false;
 				bird.display.UpdateReferences(bird.petState);
 				GetComponent<BirdFly>().enabled = false;
@@ -57,10 +63,10 @@ public class BirdFly : MonoBehaviour
 	}
 	void CheckWhereToFace()
 	{
-		if (pos.x < -7f)
+		if (pos.x < -5.4f)
 			facingRight = true;
 
-		else if (pos.x > 7f)
+		else if (pos.x > 7.6f)
 			facingRight = false;
 
 		if (((facingRight) && (localScale.x < 0)) || ((!facingRight) && (localScale.x > 0)))

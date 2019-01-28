@@ -9,10 +9,12 @@ public class BirdFeed : Feed {
 	void Start () 
 	{
 		bird = GetComponent<Bird> ();
-	}
+        bird.display.GetComponent<Timer>().timer = 10;
+        bird.display.GetComponent<Timer>().StartTimer();
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	new void Update () {
 		if (base.Update()) 
 		{
 			bird.speechBubble.SetActive (false);

@@ -13,10 +13,12 @@ public class Cat : LivingEntity
 
 
 
-    void Start()
+    new void Start()
     {
         display = GameObject.Find("Cat").GetComponent<Display>();
         audioSource = Camera.main.GetComponent<AudioSource>();
+        display.GetComponent<Timer>().StartTimer();
+        speechBubbleText = speechBubble.GetComponentInChildren<Text>();
         GetNewAction();
 
 
@@ -25,12 +27,13 @@ public class Cat : LivingEntity
 
     void Update()
     {
-          }
+    }
 
     public override void Feed()
     {
-        speechBubble.SetActive(true);
 
+        speechBubble.SetActive(true);
+        speechBubbleText.text = "Feed me Hooman!";
 
         GetComponent<CatFeed>().enabled = true;
 

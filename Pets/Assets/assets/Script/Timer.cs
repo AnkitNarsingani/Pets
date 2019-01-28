@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     Display display;
-    private float timer = 0;
+    [HideInInspector]
+    public float timer = 0;
     bool canTime = false;
     public int counter;
     
