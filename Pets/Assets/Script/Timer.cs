@@ -17,12 +17,12 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        if(canTime)
+        if (canTime)
         {
             timer -= Time.deltaTime;
-			int Inttext = (int) Math.Ceiling (timer);
-			GetComponentInChildren<Text> ().text = Inttext.ToString ();
-            if(timer <= 0)
+            int Inttext = (int)Math.Ceiling(timer);
+            GetComponentInChildren<Text>().text = Inttext.ToString();
+            if (timer <= 0)
             {
                 //GameOver
                 canTime = false;
@@ -34,9 +34,15 @@ public class Timer : MonoBehaviour
     {
         float.TryParse(display.timer.text, out timer);
 
-        if(timer > 0)
+        if (timer > 0)
         {
-			 canTime = true;
+            canTime = true;
         }
+    }
+
+    public void StopTimer()
+    {
+        canTime = false;
+        timer = 0;
     }
 }

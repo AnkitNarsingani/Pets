@@ -9,30 +9,45 @@ public class Fish : LivingEntity
 
     void Start()
     {
-		base.Start ();
 		display = GameObject.Find("Fish").GetComponent<Display>();
-		GetNewAction ();
-		//speechBubbleText =  speechBubble.GetComponentInChildren<Text> ();
+        speechBubbleText = speechBubble.GetComponentInChildren<Text>();
+        GetNewAction ();
+        display.UpdateReferences(petState);
+        display.GetComponent<Timer>().StartTimer();
     }
 
-    void Update()
+    new void Update()
     {
-		
+		if(base.Update())
+        {
+            speechBubble.SetActive(false);
+            display.GetComponent<Timer>().StopTimer();
+            display.timer.text = "";
+            StartCoroutine(GetDelayedAction());
+        }
     }
 
 	public override void Feed()
 	{
 		base.Feed ();
 		speechBubbleText.text = "Feed me";
-		GetComponent<FishFeed> ().enabled = true;
-	}
+    }
 
     public override void Action()
     {
 		
     }
 
-	public void GetNewAction()
+    IEnumerator GetDelayedAction()
+    {
+        int temp = Random.Range(3, 8);
+        yield return new WaitForSeconds(temp);
+        GetNewAction();
+        display.UpdateReferences(petState);
+        display.GetComponent<Timer>().StartTimer();
+    }
+
+    public void GetNewAction()
 	{
 		SetRandomState(ref petState);
 		switch(petState)

@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class Display : MonoBehaviour
 {
-
     public ActionHolder animal;
     public Text timer;
     public Image actions;
@@ -11,8 +10,10 @@ public class Display : MonoBehaviour
 	public float ActionTimer;
 	public float FeedTimer;
 	public float PoopTimer;
+
     void Start ()
     {
+
     }
 	
 	void Update ()

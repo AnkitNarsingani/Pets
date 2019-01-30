@@ -2,44 +2,86 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class Cat : LivingEntity 
 {
 
     AudioSource audioSource;
-    Animator anim;
 	[HideInInspector]
 	public Display display;
+    [SerializeField]
+    private float catMoveSpeed = 5f;
 
-
-
+    bool escaping = false, canMove = false;
+    Vector3 originalPos;
+    SpriteRenderer spriteRenderer;
 
     void Start () 
 	{
+        spriteRenderer = GetComponent<SpriteRenderer>();
 		display = GameObject.Find("Cat").GetComponent<Display>();
         audioSource = Camera.main.GetComponent<AudioSource>();
+        speechBubbleText = speechBubble.GetComponentInChildren<Text>();
+        originalPos = transform.localPosition;
         GetNewAction();
-
-
+        display.UpdateReferences(petState);
+        display.GetComponent<Timer>().StartTimer();
     }
 	
 
-	void Update () 
+	new void Update () 
 	{
-		
-	}
+        if (base.Update())
+        {
+            switch (petState)
+            {
+                case PetState.Hungry:
+                    speechBubble.SetActive(false);
+                    GetNewAction();
+                    display.UpdateReferences(petState);
+                    display.GetComponent<Timer>().StartTimer();
+                    break;
 
-	public override void Feed()
-	{
-		speechBubble.SetActive (true);
-
-		
-		GetComponent<CatFeed> ().enabled = true;
-
-	}
+                case PetState.Action:
+                    escaping = false;
+                    spriteRenderer.flipX = true;
+                    GetNewAction();
+                    display.UpdateReferences(petState);
+                    display.GetComponent<Timer>().StartTimer();
+                    AudioManager.Instance.Stop("Bark");
+                    break;
+            }
+        }
+        if(canMove)
+        {
+            if (escaping)
+            {
+                Move(Vector3.left);
+            }
+            else
+            {
+                Move(Vector3.right);
+                if (transform.localPosition.x == originalPos.x || transform.localPosition.x > originalPos.x)
+                {
+                    escaping = false;
+                    canMove = false;
+                    spriteRenderer.flipX = false;
+                }
+            }
+                
+        }
+        
+    }
 
     public override void Action()
     {
-		GetComponent<CatRun>().enabled = true;
+        escaping = true;
+        canMove = true;
+    }
+
+    void Move(Vector3 dir)
+    {
+        transform.position += dir * catMoveSpeed * Time.deltaTime;
     }
 
     public void GetNewAction()

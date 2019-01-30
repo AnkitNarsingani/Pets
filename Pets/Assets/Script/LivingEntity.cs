@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public enum PetState
@@ -11,12 +8,12 @@ public enum PetState
     Action
 }
 
-public abstract class LivingEntity : MonoBehaviour
+public abstract class LivingEntity : RayCastHit
 {
     [SerializeField]
-	public GameObject speechBubble;
+    public GameObject speechBubble;
 
-	protected Text speechBubbleText;
+    protected Text speechBubbleText;
 
     [SerializeField]
     protected GameObject poop;
@@ -25,21 +22,16 @@ public abstract class LivingEntity : MonoBehaviour
 
     public PetState petState;
 
-    public virtual void Start()
-    {
-		speechBubbleText =  speechBubble.GetComponentInChildren<Text> ();
-    }
-
     public virtual void Feed()
     {
         speechBubble.SetActive(true);
-		speechBubbleText.text = "Feed me please!";
+        speechBubbleText.text = "Feed me please!";
     }
 
     public void Shit()
     {
         int temp = UnityEngine.Random.Range(0, poopSpawnLocations.Length);
-		Instantiate(poop, poopSpawnLocations[temp].position, Quaternion.identity);
+        Instantiate(poop, poopSpawnLocations[temp].position, Quaternion.identity);
     }
 
     public abstract void Action();
@@ -48,7 +40,7 @@ public abstract class LivingEntity : MonoBehaviour
     {
         int temp = UnityEngine.Random.Range(1, 4);
 
-        switch(temp)
+        switch (temp)
         {
             case 1:
                 if (currentstate != PetState.Hungry)

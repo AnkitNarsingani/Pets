@@ -11,8 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3823cb25f85c100408d75e0d55a0ee5c, type: 3}
   m_Name: Fish
   m_EditorClassIdentifier: 
-  animal: 
-  Image: {fileID: 21300000, guid: 06db97d1e4d23c440af5cc65b075c222, type: 3}
+  animalName: Fish
   actions:
   - {fileID: 21300000, guid: ab3eda8f5f6f40e4cab95595ff9c539b, type: 3}
   - {fileID: 21300000, guid: df0b2928c1f931647a7861328c033a48, type: 3}

@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Animal", menuName = "Animal")]
 public class ActionHolder : ScriptableObject
 {
-    public string animal;
-    public Sprite Image;
+    public string animalName;
     public Sprite[] actions;
 }

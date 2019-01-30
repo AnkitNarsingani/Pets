@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class DogPoop : Poop
+﻿
+public class DogPoop : RayCastHit
 {
     public Dog dog;
     
@@ -10,7 +7,6 @@ public class DogPoop : Poop
     void Start()
     {
         dog = FindObjectOfType<Dog>();
-        dog.display.UpdateReferences(dog.petState);
     }
 
     new void Update()
@@ -23,10 +19,5 @@ public class DogPoop : Poop
             Destroy(gameObject);
         }
 
-    }
-
-    IEnumerator StartAction()
-    {
-        yield return new WaitForSeconds(2);
     }
 }

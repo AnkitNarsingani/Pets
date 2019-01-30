@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirdPoop : Poop {
+public class BirdPoop : RayCastHit {
 
 	public Bird bird;
 	void Start()
 	{
 		bird = FindObjectOfType<Bird>();
-		bird.display.UpdateReferences(bird.petState);
-	}
+    }
 
 	new void Update()
 	{
@@ -17,7 +16,8 @@ public class BirdPoop : Poop {
 		{
 			bird.GetNewAction();
 			bird.display.UpdateReferences(bird.petState);
-			Destroy(gameObject);
+            bird.display.GetComponent<Timer>().StartTimer();
+            Destroy(gameObject);
 		}
 	}
 

@@ -11,9 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3823cb25f85c100408d75e0d55a0ee5c, type: 3}
   m_Name: Bird
   m_EditorClassIdentifier: 
-  animal: Bird
-  Image: {fileID: 21300000, guid: cf63b386ecdc80f4ca9fc27044290bb1, type: 3}
+  animalName: Bird
   actions:
-  - {fileID: 21300000, guid: cf63b386ecdc80f4ca9fc27044290bb1, type: 3}
-  - {fileID: 21300000, guid: cf63b386ecdc80f4ca9fc27044290bb1, type: 3}
-  - {fileID: 21300000, guid: cf63b386ecdc80f4ca9fc27044290bb1, type: 3}
+  - {fileID: 21300000, guid: ab3eda8f5f6f40e4cab95595ff9c539b, type: 3}
+  - {fileID: 21300000, guid: df0b2928c1f931647a7861328c033a48, type: 3}
+  - {fileID: 21300000, guid: 8a52059571666c14b846f2c44e65e1d9, type: 3}

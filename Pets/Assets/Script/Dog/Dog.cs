@@ -5,34 +5,45 @@ using UnityEngine.UI;
 public class Dog : LivingEntity
 {
     AudioSource audioSource;
-    Animator anim;
 	[HideInInspector]
 	public Display display;
 
-    new void Start()
+    private void Start()
     {
-
         audioSource = Camera.main.GetComponent<AudioSource>();
 		display = GameObject.Find("Dog").GetComponent<Display>();
-		speechBubbleText =  speechBubble.GetComponentInChildren<Text> ();
+        speechBubbleText = speechBubble.GetComponentInChildren<Text>();
         GetNewAction();
+        display.UpdateReferences(petState);
+        display.GetComponent<Timer>().StartTimer();
     }
 
-    void Update()
+    new void Update()
     {
+        if(base.Update())
+        {
+            switch(petState)
+            {
+                case PetState.Action:
+                    speechBubble.SetActive(false);
+                    GetNewAction();
+                    display.UpdateReferences(petState);
+                    display.GetComponent<Timer>().StartTimer();
+                    AudioManager.Instance.Stop("Bark");
+                    break;
 
+                case PetState.Hungry:
+                    speechBubble.SetActive(false);
+                    GetNewAction();
+                    display.UpdateReferences(petState);
+                    display.GetComponent<Timer>().StartTimer();
+                    break;
+            }
+        }
     }
-
-	public override void Feed()
-	{
-		base.Feed ();
-		GetComponent<DogFeed> ().enabled = true;
-	}
 
     public override void Action()
     {
-        //anim.SetBool("Barking", true);
-        GetComponent<DogBark>().enabled = true;
         AudioManager.Instance.Play("Bark");
 		speechBubble.SetActive (true);
 		speechBubbleText.text = "*woof woof*";

@@ -3,18 +3,16 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3823cb25f85c100408d75e0d55a0ee5c, type: 3}
   m_Name: Cat
   m_EditorClassIdentifier: 
-  animal: Cat
-  Image: {fileID: 21300000, guid: 316705ba139f1a64da56a20ba4408a6a, type: 3}
+  animalName: Cat
   actions:
-  - {fileID: 21300000, guid: 316705ba139f1a64da56a20ba4408a6a, type: 3}
-  - {fileID: 21300000, guid: 51e1e7195e58cf140aa9b1b898c9fc45, type: 3}
-  - {fileID: 21300000, guid: 28944f30db0c8124095229723eeccf39, type: 3}
+  - {fileID: 21300000, guid: ab3eda8f5f6f40e4cab95595ff9c539b, type: 3}
+  - {fileID: 21300000, guid: df0b2928c1f931647a7861328c033a48, type: 3}
+  - {fileID: 21300000, guid: 8a52059571666c14b846f2c44e65e1d9, type: 3}

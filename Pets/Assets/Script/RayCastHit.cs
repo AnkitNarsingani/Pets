@@ -1,8 +1,7 @@
 ﻿
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Feed : MonoBehaviour 
+public class RayCastHit : MonoBehaviour 
 {
 
 	protected virtual bool Update ()

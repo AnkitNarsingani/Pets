@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CatPoop : Poop
+public class CatPoop : RayCastHit
 {
 	Cat cat;
     void Start()
     {
 		cat = FindObjectOfType<Cat>();
-		cat.display.UpdateReferences(cat.petState);
     }
 
     new void Update()
@@ -17,6 +16,7 @@ public class CatPoop : Poop
         {
 			cat.GetNewAction();
 			cat.display.UpdateReferences(cat.petState);
+            cat.display.GetComponent<Timer>().StartTimer();
             Destroy(gameObject);
         }
     }

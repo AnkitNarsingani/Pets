@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BirdFly : MonoBehaviour 
 {
-
-	Bird bird;
 	bool facingRight = true;
 	Vector3 pos, localScale;
 	[SerializeField]
@@ -18,31 +16,15 @@ public class BirdFly : MonoBehaviour
 
 	[SerializeField]
 	float magnitude = 0.5f;
-	void Start () {
-		bird = GetComponent<Bird> ();
+	void Start ()
+    {
 		pos = transform.position;
 		localScale = transform.localScale;
 	}
 	
-	// Update is called once per frame
 	void Update () 
 	{
 		Fly ();
-		if (Input.GetMouseButtonDown(0))
-		{
-			Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
-			if (hit.collider != null && hit.collider.gameObject.name.Equals(gameObject.name))
-			{
-				transform.position = new Vector3 (-0.83f, 1.97f, -0.04003906f);
-
-				bird.GetNewAction();
-				enabled = false;
-				bird.display.UpdateReferences(bird.petState);
-				GetComponent<BirdFly>().enabled = false;
-			}
-		}
-
 	}
 	void Fly()
 	{ 	
@@ -52,8 +34,6 @@ public class BirdFly : MonoBehaviour
 			MoveRight ();
 		else
 			MoveLeft ();
-
-
 	}
 	void CheckWhereToFace()
 	{
