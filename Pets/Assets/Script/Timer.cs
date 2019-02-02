@@ -9,6 +9,9 @@ public class Timer : MonoBehaviour
     Display display;
     private float timer = 0;
     bool canTime = false;
+    private static int strikesCount = 0;
+    [SerializeField] private GameObject[] strikes;
+    [SerializeField] private GameObject gameOverCanvas;
 
     void Start()
     {
@@ -24,8 +27,19 @@ public class Timer : MonoBehaviour
             GetComponentInChildren<Text>().text = Inttext.ToString();
             if (timer <= 0)
             {
-                //GameOver
+                strikesCount += 1;
                 canTime = false;
+                try
+                {
+                    strikes[strikesCount - 1].SetActive(true);
+                }
+                catch(IndexOutOfRangeException e)
+                {
+
+                }
+                if (strikesCount == 3)
+                    gameOverCanvas.SetActive(true);
+                    
             }
         }
     }
